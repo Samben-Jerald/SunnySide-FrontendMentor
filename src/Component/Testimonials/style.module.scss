@@ -1,0 +1,77 @@
+@import "../../global.scss";
+
+.testimonials {
+  &__heading {
+    color: $dark-blue;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: $grayish-blue-2;
+    font-size: 2rem;
+    font-family: $font-family-2;
+  }
+  @media screen and (max-width: 650px) {
+    &__heading {
+      font-size: 1.5rem;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 15rem auto;
+  }
+  @media only screen and (min-width: 900px) and (max-width: 100px) {
+    &__container {
+      width: 85%;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    &__container {
+      margin: 8rem auto;
+    }
+  }
+  &__clientDetails {
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    & > p,
+    & > span {
+      font-size: 1.5rem;
+      color: $grayish-blue;
+      text-align: center;
+    }
+    & > p {
+      padding-bottom: 6rem;
+      line-height: 1.5;
+    }
+    & > span {
+      font-size: 1.1rem;
+      padding-top: 1rem;
+      color: $grayish-blue-2;
+    }
+    & > h4 {
+      font-size: 1.6rem;
+      color: $dark-blue-2;
+      font-family: $font-family-2;
+    }
+  }
+  &__image {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    margin: 4rem 0;
+  }
+}

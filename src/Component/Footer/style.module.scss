@@ -1,0 +1,35 @@
+@import "../../global.scss";
+
+.footer {
+  &__container {
+    background-color: $dark-cryon-2;
+    padding: 4rem 0;
+    text-align: center;
+  }
+  &__heading {
+    color: $dark-cryon;
+    font-size: 2rem;
+  }
+  &__links,
+  &__icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    & > li {
+      padding: 2.2rem;
+    }
+    & > li > a {
+      text-decoration: none;
+      color: $white;
+      font-size: 1.4rem;
+
+      &:hover {
+        color: $dark-cryon;
+      }
+    }
+  }
+  &__links {
+    margin-top: 1rem;
+  }
+}

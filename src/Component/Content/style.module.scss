@@ -1,0 +1,121 @@
+@import "../../global.scss";
+
+@mixin underline($color) {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  transform: scaleX(0);
+  bottom: -4px;
+  left: -1px;
+  width: 100px;
+  height: 10px;
+  z-index: -100;
+  border-radius: 50px;
+  transition: all 0.5s ease-out;
+  background-color: $color;
+  transform-origin: left;
+}
+
+.section {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    place-content: center;
+  }
+  &__image {
+    width: 100%;
+    max-height: 75vh;
+    height: 100%;
+    object-fit: initial;
+    object-position: center;
+  }
+  &__item1,
+  &__item4 {
+    display: grid;
+    place-content: center;
+    padding: 7rem;
+    & > *:not(:last-child) {
+      padding-bottom: 1.5rem;
+    }
+  }
+  &__contentHeading {
+    color: $dark-blue-2;
+    font-size: 3.5rem;
+    font-family: $font-family-2;
+  }
+  &__content {
+    color: $grayish-blue;
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  &__contentLink {
+    font-family: $font-family-2;
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: $dark-blue-2;
+    position: relative;
+    &::after {
+      @include underline($yellow);
+    }
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+  &__nextLink {
+    &::after {
+      @include underline($soft-red);
+    }
+  }
+
+  &__lastPicture__content1,
+  &__lastPicture__content2 {
+    position: absolute;
+    width: 100%;
+    padding-inline: 6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    text-align: center;
+    & > h2 {
+      font-size: 3.5rem;
+      font-family: $font-family-2;
+      color: $dark-blue;
+      margin-bottom: 2rem;
+    }
+    & > p {
+      font-size: 1.4rem;
+      color: $dark-cryon;
+    }
+  }
+
+  &__item6,
+  &__item5 {
+    position: relative;
+  }
+  @media only screen and (max-width: 700px) {
+    &__container {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 1fr);
+    }
+    &__item1 {
+      grid-row: 2/3;
+    }
+    &__item2 {
+      grid-row: 1/2;
+    }
+  }
+  @media only screen and (min-width: 700px) and (max-width: 800px) {
+    &__lastPicture__content1,
+    &__lastPicture__content2 {
+      padding-inline: 2rem;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    &__lastPicture__content1,
+    &__lastPicture__content2 {
+      padding-inline: 1rem;
+    }
+  }
+}
