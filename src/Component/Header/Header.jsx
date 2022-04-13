@@ -12,6 +12,22 @@ const Header = () => {
     setHamburgerState((prev) => !prev);
   };
 
+  useEffect(() => {
+    const handler = (e) => {
+      const { originalTarget } = e;
+      const ul = document.querySelector("#unorderList");
+      if (originalTarget !== ul) {
+        setHamburgerState(false);
+      }
+    };
+
+    window.addEventListener("touchmove", handler);
+
+    return () => {
+      window.removeEventListener("touchmove", handler);
+    };
+  }, []);
+
   return (
     <header className={`${styles.header__container}`}>
       <picture>
@@ -34,6 +50,7 @@ const Header = () => {
             <ul
               className={styles.header__unorderList}
               aria-label={hambugerState ? "true" : "false"}
+              id="unorderList"
             >
               <li className={styles.header__headerLinks}>
                 <NavLink to={"#"}>About</NavLink>
